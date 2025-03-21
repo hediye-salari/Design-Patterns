@@ -30,11 +30,6 @@ namespace Design_Patterns.SingletonPattern
             Console.WriteLine($"Log: {message}");
         }
 
-        public void Log(Exception exception)
-        {
-            _logs.Add(exception.ToString());
-            Console.WriteLine($"Exception: {exception}");
-        }
         public void PrintLogs()
         {
             {
@@ -42,9 +37,10 @@ namespace Design_Patterns.SingletonPattern
                 {
                     Console.WriteLine(log);
                 }
-
             }
         }
+
+
     }
 
 }
