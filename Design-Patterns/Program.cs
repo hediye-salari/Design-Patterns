@@ -1,4 +1,5 @@
-﻿using Design_Patterns.SingletonPattern;
+﻿using Design_Patterns.FactoryMethodPattern;
+using Design_Patterns.SingletonPattern;
 
 class Program
 {
@@ -14,5 +15,35 @@ class Program
 
         
         logger1.PrintLogs();
+
+
+        Console.WriteLine("Which vehicle do you want to create? (car/motorcycle/truck)");
+        string vehicleType = Console.ReadLine().ToLower();
+
+        VehicleFactory factory = null;
+
+        switch (vehicleType)
+        {
+            case "car":
+                factory = new CarFactory();
+                break;
+            case "motorcycle":
+                factory = new MotorcycleFactory();
+                break;
+            case "truck":
+                factory = new TruckFactory();
+                break;
+            default:
+                Console.WriteLine("Invalid vehicle type!");
+                return;
+        }
+
+        if (factory != null)
+        {
+            factory.DeliverVehicle();
+        }
     }
+
+
+
 }
