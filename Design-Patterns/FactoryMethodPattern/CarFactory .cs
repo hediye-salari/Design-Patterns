@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns.FactoryMethodPattern
 {
-    internal class CarFactory
+    public class CarFactory : VehicleFactory
     {
+        public override IVehicle CreateVehicle()
+        {
+            return new Car();
+        }
+    }
+
+    public class MotorcycleFactory : VehicleFactory
+    {
+        public override IVehicle CreateVehicle()
+        {
+            return new Motorcycle();
+        }
+    }
+    public class TruckFactory : VehicleFactory
+    {
+        public override IVehicle CreateVehicle()
+        {
+            return new Truck();
+        }
     }
 }
