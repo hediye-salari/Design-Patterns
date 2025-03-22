@@ -1,4 +1,4 @@
-﻿using Design_Patterns.FactoryMethodPattern;
+﻿using Design_Patterns.FactoryMethodPattern.Vehicle;
 using Design_Patterns.SingletonPattern;
 
 class Program

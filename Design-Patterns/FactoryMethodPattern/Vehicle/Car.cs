@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Design_Patterns.FactoryMethodPattern
+namespace Design_Patterns.FactoryMethodPattern.Vehicle
 {
     public class Car : IVehicle
     {
