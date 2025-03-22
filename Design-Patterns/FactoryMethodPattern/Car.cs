@@ -13,5 +13,20 @@ namespace Design_Patterns.FactoryMethodPattern
             Console.WriteLine("Driving a car!");
         }
     }
+    public class Motorcycle : IVehicle
+    {
+        public void Drive()
+        {
+            Console.WriteLine("Riding a motorcycle!");
+        }
+    }
+
+    public class Truck : IVehicle
+    {
+        public void Drive()
+        {
+            Console.WriteLine("Driving a truck!");
+        }
+    }
 
 }
