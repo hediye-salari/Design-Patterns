@@ -75,7 +75,7 @@ class Program
         Console.WriteLine("Prototype Character:");
         prototypeCharacter.Display();
 
-        // Clone the prototype character
+        
         var clonedCharacter = prototypeCharacter.Clone();
         clonedCharacter.Name = "Archer";
         clonedCharacter.Level = 2;
@@ -83,7 +83,7 @@ class Program
         Console.WriteLine("\nCloned Character:");
         clonedCharacter.Display();
 
-        // Verify that the prototype character is unchanged
+       
         Console.WriteLine("\nPrototype Character (unchanged):");
         prototypeCharacter.Display();
 
