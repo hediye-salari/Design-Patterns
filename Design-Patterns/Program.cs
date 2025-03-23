@@ -1,12 +1,13 @@
 ﻿using Design_Patterns.FactoryMethodPattern.NotificationSystem;
 using Design_Patterns.FactoryMethodPattern.Vehicle;
+using Design_Patterns.PrototypePattern;
 using Design_Patterns.SingletonPattern;
 
 class Program
 {
     static void Main(string[] args)
     {
-
+        //SingletonPattern
         Logger logger1 = Logger.GetInstance();
         logger1.Log("This is the first log.");
 
@@ -17,15 +18,12 @@ class Program
 
         logger1.PrintLogs();
 
-
+        //FactoryMethodPattern
         Console.WriteLine("Which vehicle do you want to create? (car/motorcycle/truck)");
         string vehicleType = Console.ReadLine().ToLower();
 
         Console.WriteLine("Which notification type do you want to send? (email/sms/push)");
         string notificationType = Console.ReadLine().ToLower();
-
-
-
 
         VehicleFactory factory = null;
 
@@ -49,7 +47,7 @@ class Program
         {
             factory.DeliverVehicle();
         }
-        NotificationFactory notificationFactory=null;
+        NotificationFactory notificationFactory = null;
         switch (notificationType)
         {
             case "email":
@@ -71,7 +69,23 @@ class Program
             string message = Console.ReadLine();
             notificationFactory.SendNotification(message);
         }
-    }
+       
+        // PrototypePattern
+        var prototypeCharacter = new Character("Warrior", 1, 100);
+        Console.WriteLine("Prototype Character:");
+        prototypeCharacter.Display();
 
-   
+        // Clone the prototype character
+        var clonedCharacter = prototypeCharacter.Clone();
+        clonedCharacter.Name = "Archer";
+        clonedCharacter.Level = 2;
+        clonedCharacter.Power = 80;
+        Console.WriteLine("\nCloned Character:");
+        clonedCharacter.Display();
+
+        // Verify that the prototype character is unchanged
+        Console.WriteLine("\nPrototype Character (unchanged):");
+        prototypeCharacter.Display();
+
+    }
 }
