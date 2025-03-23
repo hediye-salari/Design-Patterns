@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Design_Patterns.AbstractFactoryPattern
+namespace Design_Patterns.AbstractFactoryPattern.Interface
 {
     public interface IButton
     {
