@@ -1,4 +1,6 @@
-﻿using Design_Patterns.FactoryMethodPattern.NotificationSystem;
+﻿using Design_Patterns.AbstractFactoryPattern;
+using Design_Patterns.AbstractFactoryPattern.Interface;
+using Design_Patterns.FactoryMethodPattern.NotificationSystem;
 using Design_Patterns.FactoryMethodPattern.Vehicle;
 using Design_Patterns.PrototypePattern;
 using Design_Patterns.SingletonPattern;
@@ -69,13 +71,13 @@ class Program
             string message = Console.ReadLine();
             notificationFactory.SendNotification(message);
         }
-       
+
         // PrototypePattern
         var prototypeCharacter = new Character("Warrior", 1, 100);
         Console.WriteLine("Prototype Character:");
         prototypeCharacter.Display();
 
-        
+
         var clonedCharacter = prototypeCharacter.Clone();
         clonedCharacter.Name = "Archer";
         clonedCharacter.Level = 2;
@@ -83,9 +85,32 @@ class Program
         Console.WriteLine("\nCloned Character:");
         clonedCharacter.Display();
 
-       
+
         Console.WriteLine("\nPrototype Character (unchanged):");
         prototypeCharacter.Display();
 
+        //AbstractFactoryPattern
+        Console.WriteLine("Which OS are you using? (windows/macos)");
+        string os = Console.ReadLine().ToLower();
+
+        IGUIFactory gUIFactory = null;
+        switch (os)
+        {
+            case "windows":
+                factory = new WindowsFactory();
+                break;
+            case "macos":
+                factory = new MacOSFactory();
+                break;
+            default:
+                Console.WriteLine("Invalid OS!");
+                return;
+        }
+        if (gUIFactory != null)
+        {
+            var app = new Application(gUIFactory);
+            app.UIRender();
+
+        }
     }
 }
