@@ -1,5 +1,6 @@
 ﻿using Design_Patterns.AbstractFactoryPattern;
 using Design_Patterns.AbstractFactoryPattern.Interface;
+using Design_Patterns.BuilderPttern;
 using Design_Patterns.FactoryMethodPattern.NotificationSystem;
 using Design_Patterns.FactoryMethodPattern.Vehicle;
 using Design_Patterns.PrototypePattern;
@@ -112,5 +113,15 @@ class Program
             app.UIRender();
 
         }
+
+        //Builder Desighn Pttern
+        var gamingBuilder = new GamingComputerBuilder();
+        var technician = new ComputerTechnician(gamingBuilder);
+
+        technician.BuildComputer();
+        var gamingPC = technician.GetComputer();
+
+        Console.WriteLine("Gaming PC Specs:");
+        gamingPC.DisplaySpecs();
     }
 }
