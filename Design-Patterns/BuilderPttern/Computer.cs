@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Design_Patterns.BuilderPttern
 {
-    public class Computer
+    public class Computer //  فقط داده ها را نگه میدار 
     {
-        public required string CPU { get; set; }
-        public required string RAM { get; set; }
-        public required string Storage { get; set; }
-        public required string GPU { get; set; }
+        public  string CPU { get; set; }
+        public  string RAM { get; set; }
+        public  string Storage { get; set; }
+        public  string GPU { get; set; }
 
         public void DisplaySpecs()
         {
